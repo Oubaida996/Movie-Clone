@@ -1,0 +1,10 @@
+.kBody {
+    grid-area: 2/2/3/3;
+    display: flex;
+    gap: 1vw 1vw;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    padding: 3vh 0px;
+}
