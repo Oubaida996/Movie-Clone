@@ -1,0 +1,22 @@
+.kHeader {
+    grid-area: 1/1/2/4;
+    background-color: #000;
+    display: grid;
+    grid-template-columns: 2vw 1fr 2vw;
+    grid-template-rows: 1fr;
+    .MuiAppBar-root {
+        grid-area: 1/2/2/3;
+        max-height: 100vh;
+        background-color: #000;
+        color: #E50914;
+        font-style: italic;
+        font-family: sans-serif;
+        position: sticky;
+        .MuiToolbar-root {
+            padding: 0px 5px;
+            .css-1orzy9s {
+                color: #f7f7f7
+            }
+        }
+    }
+}
