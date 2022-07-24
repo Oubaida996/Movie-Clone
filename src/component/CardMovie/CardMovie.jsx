@@ -1,18 +1,15 @@
 import './CardMovie.scss';
 import * as React from 'react';
 import AspectRatio from '@mui/joy/AspectRatio';
-import Avatar from '@mui/joy/Avatar';
 import Box from '@mui/joy/Box';
 import Card from '@mui/joy/Card';
 import CardCover from '@mui/joy/CardCover';
-import Chip from '@mui/joy/Chip';
-import IconButton from '@mui/joy/IconButton';
-import Typography from '@mui/joy/Typography';
-import Link from '@mui/joy/Link';
 import Favorite from '@mui/icons-material/Favorite';
 import Visibility from '@mui/icons-material/Visibility';
+import Link from '@mui/joy/Link';
+import Text from './Text';
 
-export default function DribbbleShot() {
+export default function CardMovie({ movie }) {
     return (
         <Card
             sx={{
@@ -31,10 +28,9 @@ export default function DribbbleShot() {
                             height="247"
                             sizes="338px"
                             data-sizes="auto"
-                            data-srcset="https://images.unsplash.com/photo-1515825838458-f2a94b20105a?crop=entropy&auto=format&fit=crop&w=988"
-                            data-src="https://images.unsplash.com/photo-1515825838458-f2a94b20105a?crop=entropy&auto=format&fit=crop&w=988"
-                            src="https://images.unsplash.com/photo-1515825838458-f2a94b20105a?crop=entropy&auto=format&fit=crop&w=988"
-                            srcSet="https://images.unsplash.com/photo-1515825838458-f2a94b20105a?crop=entropy&auto=format&fit=crop&w=988"
+                            data-srcset={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
+                            src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
+                            srcSet={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
                         />
                     </figure>
                 </AspectRatio>
@@ -64,56 +60,10 @@ export default function DribbbleShot() {
 
                             }}
                         >
-                            <Typography level="h2" noWrap sx={{ fontSize: 'lg' }}>
-                                <Link
-                                    href="#dribbble-shot"
-                                    overlay
-                                    underline="none"
-                                    sx={{
-                                        color: '#fff',
-                                        // textOverflow: 'ellipsis',
-                                        overflow: 'hidden',
-                                        display: 'block',
-                                    }}
-                                >
-                                    Yosemite
-                                </Link>
-                            </Typography>
-                            <Typography level="h2" noWrap sx={{ fontSize: 'lg' }}>
-                                <Link
-                                    href="#dribbble-shot"
-                                    overlay
-                                    underline="none"
-                                    sx={{
-                                        color: '#fff',
-                                        textOverflow: 'ellipsis',
-                                        overflow: 'hidden',
-                                        display: 'block',
-                                    }}
-                                >
-                                    Yosemite
-                                </Link>
-                            </Typography>
-                            <Typography level="h2" noWrap sx={{ fontSize: 'lg' }}>
-                                <Link
-                                    href="#dribbble-shot"
-                                    overlay
-                                    underline="none"
-                                    sx={{
-                                        color: '#fff',
-                                        textOverflow: 'ellipsis',
-                                        overflow: 'hidden',
-                                        display: 'block',
-                                    }}
-                                >
-                                    Yosemite
-                                </Link>
-                            </Typography>
-
-
-                            <IconButton size="sm" color="neutral">
-                                <Favorite />
-                            </IconButton>
+                            <Text text={`Name : ${movie.title}`} />
+                            <Text text={`Release Date : ${movie.release_date}`} />
+                            <Text text={`Vote Count : ${movie.vote_count}`} />
+                            <Text text={`Vote Average : ${movie.vote_average}`} />
                         </Box>
                     </Box>
                 </CardCover>

@@ -53,7 +53,11 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
 
 
 
-export default function Header() {
+export default function Header({ search }) {
+    const onSearch = (searchTitle) => {
+        // console.log(searchTitle);
+        search(searchTitle);
+    }
     return (
         <header className='kHeader'>
 
@@ -67,7 +71,7 @@ export default function Header() {
                     >
                         Movie
                     </Typography>
-                    <Search>
+                    <Search onChange={(e) => { onSearch(e.target.value) }}>
                         <SearchIconWrapper>
                             <SearchIcon />
                         </SearchIconWrapper>
