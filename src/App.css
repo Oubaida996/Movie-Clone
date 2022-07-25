@@ -2,7 +2,10 @@
     width: 100vw;
     height: 100vh;
     display: grid;
+    gap: 8vh 0px;
     grid-template-columns: 2vh 1fr 2vh;
+    grid-template-rows: 2vh 1fr 2vh 2vh;
+    /*Header + Content + Pagination + Footer*/
     align-items: flex-start;
     justify-content: center;
     overflow-x: hidden;

@@ -12,6 +12,7 @@ export default function Body({ movies }) {
             {movies.map((movie, indx) => {
                 return <CardMovie key={indx} movie={movie} />
             })}
+
         </div > || <div className='loading'>loading</div>
     )
 }
