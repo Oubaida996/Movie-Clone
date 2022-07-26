@@ -1,11 +1,18 @@
 .kBody {
     grid-area: 2/2/3/3;
     display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    gap: 1vw 1vw;
-    flex-wrap: wrap;
-    justify-content: center;
+    flex-direction: column;
+    gap: 5vh 0px;
     align-items: center;
-    padding: 3vh 0px;
+    justify-content: center;
+    .kContent {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        gap: 1vh 1vw;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+        padding: 3vh 0px;
+    }
 }
