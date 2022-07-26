@@ -2,12 +2,11 @@ import React from 'react';
 import './Header.scss';
 import { styled, alpha } from '@mui/material/styles';
 import AppBar from '@mui/material/AppBar';
-import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import InputBase from '@mui/material/InputBase';
 import SearchIcon from '@mui/icons-material/Search';
-
+import { useNavigate } from 'react-router-dom';
 
 const Search = styled('div')(({ theme }) => ({
     position: 'relative',
@@ -54,6 +53,7 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
 
 
 export default function Header({ search }) {
+    const navigate = useNavigate();
     const onSearch = (searchTitle) => {
         // console.log(searchTitle);
         search(searchTitle);
@@ -64,6 +64,7 @@ export default function Header({ search }) {
             <AppBar  >
                 <Toolbar>
                     <Typography
+                        onClick={() => { navigate('/') }}
                         variant="h6"
                         noWrap
                         component="div"

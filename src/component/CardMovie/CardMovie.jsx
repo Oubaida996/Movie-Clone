@@ -8,10 +8,13 @@ import Favorite from '@mui/icons-material/Favorite';
 import Visibility from '@mui/icons-material/Visibility';
 import Link from '@mui/joy/Link';
 import Text from './Text';
+import { useNavigate } from 'react-router-dom';
 
 export default function CardMovie({ movie }) {
+    const navigate = useNavigate();
     return (
         <Card
+            onClick={() => { navigate(`/details/${movie.id}`, { state: movie }) }}
             sx={{
                 minWidth: 300,
                 bgcolor: 'initial',
@@ -108,6 +111,6 @@ export default function CardMovie({ movie }) {
                     10.4k
                 </Link>
             </Box>
-        </Card>
+        </Card >
     );
 }
