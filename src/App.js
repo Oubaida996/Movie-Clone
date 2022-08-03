@@ -1,4 +1,6 @@
 import { useEffect, useState } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+import { getAllMoviess } from './redux/actions/actions';
 import './App.css';
 import Header from './component/Header/Header';
 import Body from './component/Body/Body';
@@ -7,7 +9,9 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Footer from './component/Footer/Footer';
 import DetailsMovie from './component/DetailsMovie/DetailsMovie';
 function App() {
-
+  const dispatch = useDispatch();
+  const moviesArr = useSelector(state => state.movies);
+  console.log(moviesArr);
   const [movies, setMovies] = useState(null);
   const [page, setPage] = useState(1);
   const [mount, setMount] = useState(false)
@@ -37,6 +41,7 @@ function App() {
 
   useEffect(() => {
     getAllMovies();
+    dispatch(getAllMoviess());
   }, [page]);
 
   return (
