@@ -1,13 +1,16 @@
-import { ALLMOVIES } from '../types/types';
+import { ALLMOVIES, SEARCH } from '../types/types';
 const initState = {
     movies: [],
-    pageCount: 0
+    noOfPage: 1
 }
 
 export const movieReducer = (state = initState, action) => {
     switch (action.type) {
         case ALLMOVIES:
-            return { movies: action.data }
+            return { movies: action.data, noOfpage: action.noOfPage }
+        case SEARCH:
+            console.log(action.data);
+            return { movies: action.data, noOfpage: action.noOfPage }
         default:
             return state;
     }

@@ -1,5 +1,7 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import './Header.scss';
+import { searchMovies, getAllMovies } from '../../redux/actions/actions';
+
 import { styled, alpha } from '@mui/material/styles';
 import AppBar from '@mui/material/AppBar';
 import Toolbar from '@mui/material/Toolbar';
@@ -7,6 +9,9 @@ import Typography from '@mui/material/Typography';
 import InputBase from '@mui/material/InputBase';
 import SearchIcon from '@mui/icons-material/Search';
 import { useNavigate } from 'react-router-dom';
+import { useSelector, useDispatch } from 'react-redux';
+
+
 
 const Search = styled('div')(({ theme }) => ({
     position: 'relative',
@@ -52,12 +57,25 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
 
 
 
-export default function Header({ search }) {
+export default function Header() {
     const navigate = useNavigate();
+    const page = useSelector(state => state.movies.noOfPage);
+    const dispatch = useDispatch();
+
+
     const onSearch = (searchTitle) => {
         // console.log(searchTitle);
-        search(searchTitle);
+        if (!searchTitle) {
+            // getAllMovies();
+            dispatch(getAllMovies(1));
+        } else {
+            dispatch(searchMovies(searchTitle, page));
+        }
+
     }
+
+
+
     return (
         <header className='kHeader'>
 
